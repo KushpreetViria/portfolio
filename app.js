@@ -2,6 +2,9 @@ const allSections = document.querySelectorAll(".section");
 const navBtnsContainer = document.querySelector(".nav-btns");
 const allNavBtns = document.querySelectorAll(".nav-btn");
 const mainBody = document.querySelector(".main");
+const pdfContainer = document.getElementById("pdfContainer");
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.7.107/pdf.worker.js";
 
 // To avoid constantly updating the HTML, just save static info here.
 let UserData = {
@@ -14,7 +17,6 @@ let UserData = {
   opportunities that allow me to continue pursuing my passions.`,
 };
 function populateUserData() {
-  console.log("called");
   for (const id in UserData) {
     if (Object.hasOwnProperty.call(UserData, id)) {
       const data = UserData[id];
@@ -36,6 +38,7 @@ function sectionTransition() {
 
   const clearActiveSection = function () {
     let currActiveSection = document.querySelector(".section.active");
+    destroy_section(currActiveSection);
     currActiveSection.classList.remove("active");
   };
 
@@ -48,7 +51,40 @@ function sectionTransition() {
       const dataid = btn.dataset.id;
       const target = document.getElementById(dataid);
       target.classList.add("active");
+
+      console.log(document.getElementById("pdfContainer"));
+      setup_section(target);
     });
   });
 }
 sectionTransition();
+
+function destroy_section(section) {
+  if (section.classList.contains("section2") && section.classList.contains("resume")) {
+    console.log("destroying...");
+    const canvas = pdfContainer.querySelector("canvas");
+    if (canvas) canvas.remove();
+  }
+}
+
+function setup_section(section) {
+  console.log("setting up...");
+
+  if (section.classList.contains("section2") && section.classList.contains("resume")) {
+    pdfjsLib.getDocument("docs/resume.pdf").promise.then((pdf) => {
+      pdf.getPage(1).then((page) => {
+        const scale = 1.5;
+        const viewport = page.getViewport({ scale });
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        pdfContainer.appendChild(canvas);
+        page.render({
+          canvasContext: context,
+          viewport: viewport,
+        });
+      });
+    });
+  }
+}

@@ -80,6 +80,8 @@
   animation: typewriter 1s steps(44) 1s 1 normal both, blinkTextCursor 500ms steps(44) infinite normal;
 }
 
+/* general */
+
 body {
   background-color: var(--primary-color);
   font-family: "Lora", serif;
@@ -93,11 +95,17 @@ a {
   text-decoration: none;
 }
 
+.icon-left {
+  margin-right: 0.5rem;
+}
+
 header {
   height: 100vh;
   color: var(--white);
   overflow: hidden;
 }
+
+/* sections */
 
 .sections {
   margin: auto;
@@ -141,9 +149,7 @@ section {
   animation: scaleAnim 1s ease-in;
 }
 
-.icon-left {
-  margin-right: 0.5rem;
-}
+/* nav buttons */
 
 .btn-info-left {
   color: white;
@@ -204,6 +210,8 @@ section {
   }
 }
 
+/* about section */
+
 .about-header-content {
   min-height: 100vh;
   .about-left-header-content {
@@ -213,4 +221,8 @@ section {
     align-self: flex-start;
     padding: 4rem;
   }
+}
+
+#pdfContainer {
+  width: fit-content;
 }
