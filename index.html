@@ -22,10 +22,10 @@
       referrerpolicy="no-referrer" />
   </head>
   <body class="main">
-    <nav class="container-fluid">
-      <ul class="nav-btns">
+    <nav id="navigation_bar" class="container-fluid">
+      <ul class="nav-btns pt-3">
         <li>
-          <a data-id="about" class="nav-btn nav-1 active-btn" href="#"><i class="fas fa-user icon-left"></i>About Me</a>
+          <a data-id="about" class="nav-btn nav-1" href="#"><i class="fas fa-user icon-left"></i>About Me</a>
         </li>
         <li>
           <a data-id="resume" class="nav-btn nav-2" href="#"><i class="fas fa-file icon-left"></i>Resume</a>
@@ -39,14 +39,12 @@
       </ul>
     </nav>
     <main class="sections">
-      <section class="section section1 about active" id="about">
+      <section class="section section1 about" id="about">
         <!-- Header Start -->
         <div class="about-header-content container-fluid d-flex align-items-center mb-5 py-5">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-lg-5 px-5 pl-lg-0 pb-5 pb-lg-0">
-                <img class="img-fluid w-100 rounded-circle shadow-sm" src="img/kushpreet.jpg" alt="" />
-              </div>
+          <div class="container col-10">
+            <div class="row align-items-center w-100">
+              <img class="img-fluid w-10 mx-5 px-5 rounded-circle shadow-sm" src="img/kushpreet.jpg" alt="" />
               <div class="col-lg-7 text-center text-lg-left">
                 <h3 class="text-white font-weight-normal mb-3">Hi, I'm</h3>
                 <h1 class="display-3 text-uppercase text-white mb-2 text-stroke-2">Kushpreet Viria</h1>
@@ -54,10 +52,9 @@
                   <h1 class="typed-text-output font-weight-lighter text-white anim-typewriter" id="about_role"></h1>
                 </div>
                 <br />
-                <div class="font-weight-light typed-text text-white" id="about_description"></div>
-                <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
-                  <a href="" class="btn btn-outline-light mr-5">Download Resume</a>
-                  <a href="" class="btn btn-outline-light mr-5">Download CV</a>
+                <h4 class="display-5 font-weight-lighter typed-text text-white" id="about_description"></h4>
+                <div class="d-flex align-items-center justify-content-center pt-5">
+                  <a id="about-contact-btn" href="#" class="btn h3 text-uppercase font-weight-bold px-5 py-2 btn-outline-light mr-5">Contact Me</a>
                   <span></span>
                 </div>
               </div>
@@ -66,7 +63,7 @@
         </div>
         <!-- Skills section -->
         <div class="container-fluid py-5" id="skill">
-          <div class="container">
+          <div class="container col-10">
             <!-- 'SKILL' title -->
             <div class="position-relative d-flex align-items-center justify-content-center">
               <h1 class="display-1 text-uppercase font-weight-bolder text-white text-stroke-black-2">S k i l l s</h1>
@@ -136,32 +133,11 @@
         </div>
       </section>
       <section class="section section2 resume" id="resume">
-        <div class="container">
-          <div class="row">
-            <div class="col w-100 d-flex justify-content-center">
-              <div id="pdfContainer"></div>
-            </div>
-          </div>
-        </div>
+        <object id="pdfContainer" data="docs/resume.pdf" type="application/pdf"></object>
       </section>
       <section class="section section3 projects" id="projects"></section>
       <section class="section section4 contact" id="contact"></section>
     </main>
   </body>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.7.107/pdf.js"
-    integrity="sha512-9o7wqSeQGc0pqi6bCT7Fiq20cyyhUMg2/YVxgjcS+9XC9vyc3oLHzM9jjcGqLad9qv9QUjSnU3HogRaNstzhaA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.7.107/pdf.worker.js"
-    integrity="sha512-gWtezKoOh7Q4f8T7cJB5+DrKnMXb3pGrSWgu66Ir+zCBzf06NkR28qvempDTATBj1FLz35iBm/fIBhqhXcpYqw=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.7.107/pdf_viewer.js"
-    integrity="sha512-+oco2oC1SUj7+H+6614KlV/1rTtQRo0idWZvSzcfn1GyHISHXJBxMYYTppI75Goba+jkTfqa88+lj4YhcTwubA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"></script>
   <script src="app.js"></script>
 </html>

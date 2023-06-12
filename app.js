@@ -5,8 +5,6 @@ const mainBody = document.querySelector(".main");
 const pdfContainer = document.getElementById("pdfContainer");
 const progressBars = document.querySelectorAll(".progress-bar");
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.7.107/pdf.worker.js";
-
 // To avoid constantly updating the HTML, just save static info here.
 let UserData = {
   about_role: "Junior Software Developer",
@@ -25,6 +23,7 @@ let UserData = {
     "C++": 95,
   },
 };
+
 function populateUserData() {
   for (const id in UserData) {
     if (Object.hasOwnProperty.call(UserData, id)) {
@@ -37,21 +36,22 @@ function populateUserData() {
     ele.textContent = UserData.skills[ele.dataset.id] + "%";
   });
 }
-window.onload = populateUserData();
+
+// ------------------ section functions -------------------//
+
+let setup_section1 = false;
 
 // add listeners for transition between sections
 function sectionTransition() {
   const clearActiveBtns = function () {
-    let currActiveBtns = document.querySelectorAll(".active-btn");
-    currActiveBtns.forEach((btn) => {
-      btn.classList.remove("active-btn");
-    });
+    let currActiveBtn = document.querySelector(".active-btn");
+    currActiveBtn?.classList.remove("active-btn");
   };
 
   const clearActiveSection = function () {
     let currActiveSection = document.querySelector(".section.active");
     destroy_section(currActiveSection);
-    currActiveSection.classList.remove("active");
+    currActiveSection?.classList.remove("active");
   };
 
   allNavBtns.forEach((btn) => {
@@ -64,41 +64,30 @@ function sectionTransition() {
       const target = document.getElementById(dataid);
       target.classList.add("active");
 
-      console.log(document.getElementById("pdfContainer"));
       setup_section(target);
       e.preventDefault();
     });
   });
 }
-sectionTransition();
 
+// section destructor
 function destroy_section(section) {
-  if (section.classList.contains("section2") && section.classList.contains("resume")) {
-    const canvas = pdfContainer.querySelector("canvas");
-    if (canvas) canvas.remove();
-  }
+  if (!section) return;
 }
 
+// section constructor
 function setup_section(section) {
-  if (section.classList.contains("section2") && section.classList.contains("resume")) {
-    pdfjsLib.getDocument("docs/resume.pdf").promise.then((pdf) => {
-      pdf.getPage(1).then((page) => {
-        const scale = 1.5;
-        const viewport = page.getViewport({ scale });
-        const canvas = document.createElement("canvas");
-        const context = canvas.getContext("2d");
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
-        pdfContainer.appendChild(canvas);
-        page.render({
-          canvasContext: context,
-          viewport: viewport,
-        });
-      });
+  if (!section) return;
+  if (!setup_section1 && section.classList.contains("section1") && section.classList.contains("about")) {
+    let contactBtn = document.getElementById("about-contact-btn");
+    contactBtn.addEventListener("click", (e) => {
+      allNavBtns[3].click();
     });
+    setup_section1 = true;
   }
 }
 
+// skill section animation
 function setupScrollSkillAnimations() {
   const animateSkills = function () {
     progressBars.forEach((bar) => {
@@ -119,6 +108,7 @@ function setupScrollSkillAnimations() {
     });
   };
 
+  // if the progress bars come into viewport, trigger animation
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) animateSkills();
@@ -128,4 +118,7 @@ function setupScrollSkillAnimations() {
   observer.observe(document.getElementById("skill-progress-box"));
 }
 
+window.onload = populateUserData();
+sectionTransition();
+allNavBtns[0].click(); //begin at about section
 setupScrollSkillAnimations();
