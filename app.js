@@ -8,7 +8,12 @@ const progressBars = document.querySelectorAll(".progress-bar");
 // To avoid constantly updating the HTML, just save static info here.
 let UserData = {
   about_role: "Junior Software Developer",
-  about_description: `Innovative and detail-oriented software developer with a passion for clean code, actively seeking new opportunities to apply my skills and contribute to impactful projects.`,
+  about_description: `Innovative and detail-oriented software developer with a passion for writing clean code. Actively seeking new opportunities as junior software developer to apply my skills and contribute to impactful projects.`,
+  about_me_summary: `Hello, I'm Kushpreet, and I'm passionate about building things through software. My journey as a developer began when I took computer science classes in high school. It was during 
+  this time that I discovered my love for creating games and exploring the various possibilities that coding offers. Throughout the years, I have refined my skills and expanded my knowledge by working 
+  on small projects and developing games. Currently, I am a computer science graduate with approximately one year of professional experience and a total of five years of experience in the field. Through 
+  my professional experiences, I have developed a strong interest in web development and working with graphics. I am now seeking a junior developer position to kick-start my career and learn from seasoned 
+  professionals. I am open to any industry as I am still eager to grow and learn.`,
   my_address: "Winnipeg, Manitoba, Canada",
   my_phone_number: "+1 (431) 996 6587",
   my_email: "kviria27@gmail.com",
@@ -30,17 +35,17 @@ let UserData = {
     {
       title: "Shopping Site",
       text: `ASP.Net and Angular web application that accurately replicates a shopping website.
-    Implemented essential features like DTO mapping, Tokenization services, and utilized Angular guards and
-    interceptors for enhanced security.
-    `,
+      Implemented essential features like DTO mapping, Tokenization services, and utilized Angular guards and
+      interceptors for enhanced security.
+      `,
       img: "#",
       link: "https://github.com/KushpreetViria/Shop-Site",
     },
     {
       title: "Pathfinding Visualization",
       text: `Interactive UI application using C/C++ and GLSL, showcasing various path-finding algorithms through
-    the OpenGL graphics API. Employed different data structures to efficiently store algorithm information for visual
-    display`,
+      the OpenGL graphics API. Employed different data structures to efficiently store algorithm information for visual
+      display`,
       img: "img/pathfinding-visualization.png",
       link: "https://github.com/KushpreetViria/PathfindingVisualization",
     },
@@ -66,6 +71,7 @@ function populateUserData() {
 
   populateElement("about_role");
   populateElement("about_description");
+  populateElement("about_me_summary");
   populateElement("my_address");
   populateElement("my_phone_number");
   populateElement("my_email");
