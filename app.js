@@ -38,7 +38,7 @@ let UserData = {
       Implemented essential features like DTO mapping, Tokenization services, and utilized Angular guards and
       interceptors for enhanced security.
       `,
-      img: "#",
+      img: "img/shopping-site.png",
       link: "https://github.com/KushpreetViria/Shop-Site",
     },
     {
