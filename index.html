@@ -43,11 +43,11 @@
         <!-- Header Start -->
         <div class="about-header-content container-fluid d-flex align-items-center mb-5 py-5">
           <div class="container col-10">
-            <div class="row align-items-center w-100">
+            <div class="row align-items-center w-100 flex-nowrap">
               <img class="img-fluid w-10 mx-5 px-5 rounded-circle shadow-sm" src="img/kushpreet.jpg" alt="" />
               <div class="col-lg-7 text-center text-lg-left">
                 <h3 class="text-white font-weight-normal mb-3">Hi, I'm</h3>
-                <h1 class="display-3 text-uppercase text-white mb-2 text-stroke-2">Kushpreet Viria</h1>
+                <h1 class="display-3 text-uppercase text-white mb-2 text-stroke-2">Kushpreet Singh Viria</h1>
                 <div style="width: min-content">
                   <h1 class="typed-text-output font-weight-lighter text-white anim-typewriter" id="about_role"></h1>
                 </div>
@@ -61,7 +61,50 @@
             </div>
           </div>
         </div>
-        <!-- Skills section -->
+        <!-- Summary -->
+        <div class="container-fluid pb-5" id="skill">
+          <div class="container col-10">
+            <div class="position-relative d-flex align-items-center justify-content-center">
+              <h1 class="display-1 text-uppercase font-weight-bolder text-white text-stroke-black-2">A B O U T</h1>
+              <h1 class="position-absolute text-uppercase text-grey text-stroke-white-1">About Me</h1>
+            </div>
+            <h4 class="display-5 font-weight-lighter typed-text text-white" id="about_description">
+              As a recent computer science graduate, I am deeply passionate about writing clean and maintainable code. With proficiency in multiple programming languages and
+              around 1 year of professional experience as a full stack developer, I have actively contributed to the successful development of cutting-edge web applications,
+              thriving in dynamic and fast-paced environments through my collaborative approach within Agile teams. Driven by a constant desire for growth, I am always eager
+              to expand my skill set and stay up-to-date with the latest industry trends and technologies. This proactive mindset allows me to continuously deliver innovative
+              and efficient solutions, as I actively seek opportunities to learn and apply new concepts.
+            </h4>
+            <br />
+            <div class="py-2">
+              <h5 class="display-5 font-weight-bolder typed-text text-white">Work Experience:</h5>
+              <div class="d-flex justify-content-end flex-column">
+                <div class="d-flex justify-content-between flex-row">
+                  <p class="display-6 font-weight-bold font-italic typed-text text-white mb-0">Mely.ai</p>
+                  <p class="display-6 font-weight-lighter typed-text text-white mb-0">Montreal, Quebec, Canada (Remote)</p>
+                </div>
+                <div class="d-flex justify-content-between flex-row">
+                  <p class="display-6 font-weight-lighter typed-text text-white">Software Engineer Internship</p>
+                  <p class="display-6 font-weight-lighter typed-text text-white">Jan 2022 - Aug 2022</p>
+                </div>
+              </div>
+            </div>
+            <div class="py-2">
+              <h5 class="display-5 font-weight-bolder typed-text text-white">Education:</h5>
+              <div class="d-flex justify-content-end flex-column">
+                <div class="d-flex justify-content-between flex-row">
+                  <p class="display-6 font-weight-bold font-italic typed-text text-white mb-0">University of Manitoba</p>
+                  <p class="display-6 font-weight-lighter typed-text text-white mb-0">Winnipeg, Manitoba, Canada</p>
+                </div>
+                <div class="d-flex justify-content-between flex-row">
+                  <p class="display-6 font-weight-lighter typed-text text-white">Bachelor of Science in Computer Science | GPA: 3.95/4.5</p>
+                  <p class="display-6 font-weight-lighter typed-text text-white">Sept 2018 – April 2023</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Skills -->
         <div class="container-fluid py-5" id="skill">
           <div class="container col-10">
             <!-- 'SKILL' title -->
@@ -69,50 +112,42 @@
               <h1 class="display-1 text-uppercase font-weight-bolder text-white text-stroke-black-2">S k i l l s</h1>
               <h1 class="position-absolute text-uppercase text-grey text-stroke-white-1">My Skills</h1>
             </div>
+            <!-- programing languages -->
             <div id="skill-progress-box" class="row align-items-center text-white">
               <div class="col-md-6">
                 <div class="skill mb-4">
+                  <div class="skill mb-4">
+                    <div class="d-flex justify-content-between">
+                      <h6 class="font-weight-bold">C++</h6>
+                      <h6 data-id="C++" class="font-weight-bold progress-percentage"></h6>
+                    </div>
+                    <div class="progress">
+                      <div data-id="C++" class="progress-bar bg-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                  <div class="skill mb-4">
+                    <div class="d-flex justify-content-between">
+                      <h6 class="font-weight-bold">Java</h6>
+                      <h6 data-id="Java" class="font-weight-bold progress-percentage"></h6>
+                    </div>
+                    <div class="progress">
+                      <div data-id="Java" class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
                   <div class="d-flex justify-content-between">
                     <h6 class="font-weight-bold">HTML/CSS</h6>
-                    <h6 data-id="HTML_CSS" class="font-weight-bold progress-percentage">80%</h6>
+                    <h6 data-id="HTML_CSS" class="font-weight-bold progress-percentage"></h6>
                   </div>
                   <div class="progress">
                     <div data-id="HTML_CSS" class="progress-bar" role="progressbar" aria-valuemax="100"></div>
-                  </div>
-                </div>
-                <div class="skill mb-4">
-                  <div class="d-flex justify-content-between">
-                    <h6 class="font-weight-bold">C++</h6>
-                    <h6 data-id="C++" class="font-weight-bold progress-percentage">85%</h6>
-                  </div>
-                  <div class="progress">
-                    <div data-id="C++" class="progress-bar bg-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-                <div class="skill mb-4">
-                  <div class="d-flex justify-content-between">
-                    <h6 class="font-weight-bold">Java</h6>
-                    <h6 data-id="Java" class="font-weight-bold progress-percentage">90%</h6>
-                  </div>
-                  <div class="progress">
-                    <div data-id="Java" class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="skill mb-4">
                   <div class="d-flex justify-content-between">
-                    <h6 class="font-weight-bold">Javascript</h6>
-                    <h6 data-id="Javascript" class="font-weight-bold progress-percentage">90%</h6>
-                  </div>
-                  <div class="progress">
-                    <div data-id="Javascript" class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-                <div class="skill mb-4">
-                  <div class="d-flex justify-content-between">
                     <h6 class="font-weight-bold">C#</h6>
-                    <h6 data-id="C#" class="font-weight-bold progress-percentage">95%</h6>
+                    <h6 data-id="C#" class="font-weight-bold progress-percentage"></h6>
                   </div>
                   <div class="progress">
                     <div data-id="C#" class="progress-bar bg-secondary" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
@@ -120,11 +155,55 @@
                 </div>
                 <div class="skill mb-4">
                   <div class="d-flex justify-content-between">
+                    <h6 class="font-weight-bold">Javascript</h6>
+                    <h6 data-id="Javascript" class="font-weight-bold progress-percentage"></h6>
+                  </div>
+                  <div class="progress">
+                    <div data-id="Javascript" class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+                <div class="skill mb-4">
+                  <div class="d-flex justify-content-between">
                     <h6 class="font-weight-bold">Python</h6>
-                    <h6 data-id="Python" class="font-weight-bold progress-percentage">85%</h6>
+                    <h6 data-id="Python" class="font-weight-bold progress-percentage"></h6>
                   </div>
                   <div class="progress">
                     <div data-id="Python" class="progress-bar bg-info" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="hr bg-secondary my-5" />
+            <!-- others -->
+            <div id="skill-progress-box" class="row align-items-start text-white">
+              <div class="col-md-6">
+                <div class="skill mb-4">
+                  <div class="d-flex justify-content-between">
+                    <h6 class="font-weight-bold">.NET</h6>
+                    <h6 data-id="DOT_NET" class="font-weight-bold progress-percentage"></h6>
+                  </div>
+                  <div class="progress">
+                    <div data-id="DOT_NET" class="progress-bar" role="progressbar" aria-valuemax="100"></div>
+                  </div>
+                </div>
+                <div class="skill mb-4">
+                  <div class="d-flex justify-content-between">
+                    <h6 class="font-weight-bold">Angular</h6>
+                    <h6 data-id="Angular" class="font-weight-bold progress-percentage"></h6>
+                  </div>
+                  <div class="progress">
+                    <div data-id="Angular" class="progress-bar bg-warning" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="skill mb-4">
+                  <div class="d-flex justify-content-between">
+                    <h6 class="font-weight-bold">Vue.Js</h6>
+                    <h6 data-id="Vue_Js" class="font-weight-bold progress-percentage"></h6>
+                  </div>
+                  <div class="progress">
+                    <div data-id="Vue_Js" class="progress-bar bg-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>
@@ -133,9 +212,18 @@
         </div>
       </section>
       <section class="section section2 resume" id="resume">
-        <object id="pdfContainer" data="docs/resume.pdf" type="application/pdf"></object>
+        <object id="pdfContainer" data="docs/resume.pdf#view=Fit" type="application/pdf" aria-label="pdfContainer">
+          Your browser does not support PDF files.
+          <a href="mypdf.pdf">Download the file instead</a>
+        </object>
       </section>
-      <section class="section section3 projects" id="projects"></section>
+      <section class="section section3 projects" id="projects">
+        <div class="container projects-container">
+          <div class="row projects-title">
+            <div class="col-6"><h3 class="display-5 my-1 py-2 text-white typed-text-output font-weight-bold">My projects</h3></div>
+          </div>
+        </div>
+      </section>
       <section class="section section4 contact" id="contact"></section>
     </main>
   </body>

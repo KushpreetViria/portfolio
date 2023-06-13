@@ -11,6 +11,7 @@
   --secondary-color: #b4b242;
   --white: #ffffff;
   --black: #000000;
+  --transparent: #ffffff00;
   --grey: #b1a4a4;
   --grey-2: #534b4b;
   --grey-2: #272222;
@@ -78,6 +79,18 @@
   overflow: hidden;
   animation: typewriter 1s steps(44) 1s 1 normal both, blinkTextCursor 500ms steps(44) infinite normal;
 }
+.image-wrapper {
+  max-height: 250px;
+  overflow: hidden;
+}
+.zoom-hover {
+  transition-duration: 1s;
+  transition-property: transform;
+}
+.zoom-hover:hover {
+  transform: scale(1.5);
+  overflow: hidden;
+}
 
 /* general */
 
@@ -87,6 +100,8 @@ body {
   font-size: 1.1rem;
   color: var(--white);
   transition: all 0.5s ease-in-out;
+  overscroll-behavior-y: auto;
+  overscroll-behavior-x: none;
 }
 
 a {
@@ -107,7 +122,9 @@ header {
 /* sections */
 
 .sections {
-  margin: auto;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 .section {
@@ -195,6 +212,9 @@ nav {
 
 .active-btn {
   color: var(--white) !important;
+  > i {
+    color: var(--secondary-color);
+  }
 }
 
 /* about section */
@@ -214,5 +234,16 @@ nav {
   padding-top: 3.5em;
   margin: 0;
   min-height: 100vh;
-  width: 100%;
+  width: 100vw;
+}
+
+.projects-container {
+  padding-top: 5em;
+  top: 50%;
+  min-width: 50%;
+}
+
+.project-card {
+  max-height: 575px;
+  min-height: 575px;
 }
