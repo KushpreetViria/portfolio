@@ -9,6 +9,12 @@ const progressBars = document.querySelectorAll(".progress-bar");
 let UserData = {
   about_role: "Junior Software Developer",
   about_description: `Innovative and detail-oriented software developer with a passion for clean code, actively seeking new opportunities to apply my skills and contribute to impactful projects.`,
+  my_address: "Winnipeg, Manitoba, Canada",
+  my_phone_number: "+1 (431) 996 6587",
+  my_email: "kviria27@gmail.com",
+  linkedin_link: "https://www.linkedin.com/in/kushpreet-viria/",
+  github_link: "https://github.com/KushpreetViria",
+  leetcode_link: "https://leetcode.com/MushyBear/",
   skills: {
     HTML_CSS: 70,
     Javascript: 70,
@@ -48,14 +54,33 @@ let UserData = {
 };
 
 function populateUserData() {
-  let element = document.getElementById("about_role");
-  if (element) element.textContent = UserData["about_role"];
+  const populateElement = function (key) {
+    let element = document.getElementById(key);
+    if (element) element.textContent = UserData[key];
+  };
 
-  element = document.getElementById("about_description");
-  if (element) element.textContent = UserData["about_description"];
+  const attachClickListener = function (key) {
+    let element = document.getElementById(key);
+    if (element) element.addEventListener("click", () => window.open(UserData[key]));
+  };
+
+  populateElement("about_role");
+  populateElement("about_description");
+  populateElement("my_address");
+  populateElement("my_phone_number");
+  populateElement("my_email");
+
+  attachClickListener("linkedin_link");
+  attachClickListener("github_link");
+  attachClickListener("leetcode_link");
 
   document.querySelectorAll(".progress-percentage").forEach((ele) => {
     ele.textContent = UserData.skills[ele.dataset.id] + "%";
+  });
+
+  let contactBtn = document.getElementById("about-contact-btn");
+  contactBtn?.addEventListener("click", (e) => {
+    allNavBtns[3].click();
   });
 }
 
@@ -102,14 +127,6 @@ function setup_section(section) {
   if (!section) return;
 
   window.scrollTo(0, 0);
-
-  if (!setup_section1 && section.classList.contains("section1") && section.classList.contains("about")) {
-    let contactBtn = document.getElementById("about-contact-btn");
-    contactBtn.addEventListener("click", (e) => {
-      allNavBtns[3].click();
-    });
-    setup_section1 = true;
-  }
 }
 
 // skill section animation
@@ -142,6 +159,8 @@ function setupScrollSkillAnimations() {
 
   observer.observe(document.getElementById("skill-progress-box"));
 }
+
+// ---------- projection section populate ----------
 
 function createProjectCardElement(title, text, img_path, project_link) {
   const card = document.createElement("div");

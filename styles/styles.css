@@ -243,6 +243,12 @@ nav {
   min-width: 50%;
 }
 
+.contact-container {
+  top: 50%;
+  max-width: 80vw;
+  transform: translateY(50%);
+}
+
 .project-card {
   max-height: 575px;
   min-height: 575px;

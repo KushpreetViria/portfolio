@@ -16,10 +16,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap" rel="stylesheet" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css"
+      integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.css"
+      integrity="sha512-IISyc/Jrl/fD0vfG2rWRsnaKcBjDrzU6CjH9dtt/IC9KjpC9jvJnGF62W0mMpBOAgwDvIP94SUKIuSimGZ6wrQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.js"
+      integrity="sha512-6V5JccoHkiddv+vVubCp2TFQsx9UC/VIa5+l+zSObWn1Ns5nYQOkdCgRah1Fb0NOeYPAD6b+d7Ui9ImHTIwsJw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"></script>
   </head>
   <body class="main">
     <nav id="navigation_bar" class="container-fluid">
@@ -224,7 +235,79 @@
           </div>
         </div>
       </section>
-      <section class="section section4 contact" id="contact"></section>
+      <section class="section section4 contact" id="contact">
+        <div class="container-fluid contact-container">
+          <h2 class="display-2 font-weight-bold text-center text-white my-4">Contact Me</h2>
+          <p class="text-center text-white mx-auto mb-5">
+            If you need to reach out about anything, please do not hesitate to contact me directly. I will respond within a matter of hours, if possible.
+          </p>
+
+          <div class="row">
+            <div class="col-md-9 mb-md-0 mb-5">
+              <form id="contact-form" class="text-white" name="contact-form" action="https://formspree.io/f/xyyaryqp" method="POST">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="md-form mb-0">
+                      <input type="text" id="name" required name="name" class="form-control" />
+                      <label for="name">Your name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="md-form mb-0">
+                      <input type="text" id="email" required name="email" class="form-control" />
+                      <label for="email" class="">Your email</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="md-form mb-0">
+                      <input type="text" id="subject" name="subject" class="form-control" />
+                      <label for="subject" class="">Subject</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="md-form">
+                      <textarea type="text" id="message" required name="message" rows="2" class="form-control md-textarea"></textarea>
+                      <label for="message">Your message</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                <input id="contact-email-btn" type="submit" class="btn h3 text-uppercase font-weight-bold px-5 py-2 btn-outline-light"></input>
+              </div>
+              </form>
+            </div>
+
+            <div class="col-md-3 text-center text-white">
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <i class="fas fa-map-marker-alt fa-2x"></i>
+                  <p id="my_address"></p>
+                </li>
+
+                <li>
+                  <i class="fas fa-phone mt-4 fa-2x"></i>
+                  <p id="my_phone_number"></p>
+                </li>
+
+                <li>
+                  <i class="fas fa-envelope mt-4 fa-2x"></i>
+                  <p id="my_email"></p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-lg-2 text-center text-white"><i class="fa-brands fa-github mr-1"></i> <a id="github_link" class="text-white" href="#">Github</a></div>
+            <div class="col-lg-2 text-center text-white"><i class="fa-brands fa-linkedin mr-1"></i> <a id="linkedin_link" class="text-white" href="#">Linkedin</a></div>
+            <div class="col-lg-2 text-center text-white"><i class="fa fa-code mr-1"></i> <a id="leetcode_link" class="text-white" href="#">Leetcode</a></div>
+          </div>
+        </div>
+      </section>
     </main>
   </body>
   <script src="app.js"></script>
