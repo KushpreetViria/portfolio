@@ -5,7 +5,9 @@ const mainBody = document.querySelector(".main");
 const pdfContainer = document.getElementById("pdfContainer");
 const progressBars = document.querySelectorAll(".progress-bar");
 
+// ------------------ Data population -------------------//
 // To avoid constantly updating the HTML, just save static info here.
+
 let UserData = {
   about_role: "Junior Software Developer",
   about_description: `Innovative and detail-oriented software developer with a passion for writing clean code. Actively seeking new opportunities as junior software developer to apply my skills and contribute to impactful projects.`,
@@ -66,7 +68,7 @@ function populateUserData() {
 
   const attachClickListener = function (key) {
     let element = document.getElementById(key);
-    if (element) element.addEventListener("click", () => window.open(UserData[key]));
+    if (element) element.addEventListener("click", () => window.open(UserData[key], "_blank"));
   };
 
   populateElement("about_role");
@@ -92,8 +94,6 @@ function populateUserData() {
 
 // ------------------ section functions -------------------//
 
-let setup_section1 = false;
-
 // add listeners for transition between sections
 function sectionTransition() {
   const clearActiveBtns = function () {
@@ -103,7 +103,6 @@ function sectionTransition() {
 
   const clearActiveSection = function () {
     let currActiveSection = document.querySelector(".section.active");
-    destroy_section(currActiveSection);
     currActiveSection?.classList.remove("active");
   };
 
@@ -117,22 +116,10 @@ function sectionTransition() {
       const target = document.getElementById(dataid);
       target.classList.add("active");
 
-      setup_section(target);
+      window.scrollTo(0, 0);
       e.preventDefault();
     });
   });
-}
-
-// section destructor
-function destroy_section(section) {
-  if (!section) return;
-}
-
-// section constructor
-function setup_section(section) {
-  if (!section) return;
-
-  window.scrollTo(0, 0);
 }
 
 // skill section animation
@@ -166,43 +153,42 @@ function setupScrollSkillAnimations() {
   observer.observe(document.getElementById("skill-progress-box"));
 }
 
-// ---------- projection section populate ----------
-
-function createProjectCardElement(title, text, img_path, project_link) {
-  const card = document.createElement("div");
-  card.classList.add("card", "project-card");
-
-  const card_img = document.createElement("img");
-  card_img.alt = "Image";
-  card_img.classList.add("img-fluid", "img-thumbnail", "zoom-hover");
-  card_img.src = img_path;
-
-  const image_link = document.createElement("a");
-  image_link.classList.add("image-wrapper");
-  image_link.href = project_link;
-  image_link.appendChild(card_img);
-  card.appendChild(image_link);
-
-  const card_title = document.createElement("h4");
-  card_title.classList.add("card-title");
-  card_title.appendChild(document.createTextNode(title));
-
-  const card_text = document.createElement("p");
-  card_text.classList.add("card-text");
-  card_text.appendChild(document.createTextNode(text));
-
-  const card_body = document.createElement("div");
-  card_body.classList.add("card-body");
-  card_body.appendChild(card_title);
-  card_body.appendChild(card_text);
-  card.appendChild(card_body);
-
-  return card;
-}
-
+// ---------- project section populate ----------
 function appendProjects() {
+  const createProjectCardElement = function (title, text, img_path, project_link) {
+    const card = document.createElement("div");
+    card.classList.add("card", "project-card");
+
+    const card_img = document.createElement("img");
+    card_img.alt = "Image";
+    card_img.classList.add("img-fluid", "img-thumbnail", "zoom-hover");
+    card_img.src = img_path;
+
+    const image_link = document.createElement("a");
+    image_link.classList.add("image-wrapper");
+    image_link.href = project_link;
+    image_link.target = "_blank";
+    image_link.appendChild(card_img);
+    card.appendChild(image_link);
+
+    const card_title = document.createElement("h4");
+    card_title.classList.add("card-title");
+    card_title.appendChild(document.createTextNode(title));
+
+    const card_text = document.createElement("p");
+    card_text.classList.add("card-text");
+    card_text.appendChild(document.createTextNode(text));
+
+    const card_body = document.createElement("div");
+    card_body.classList.add("card-body");
+    card_body.appendChild(card_title);
+    card_body.appendChild(card_text);
+    card.appendChild(card_body);
+
+    return card;
+  };
+
   const projectContainer = document.querySelector(".projects-container");
-  console.log("projectContainer", projectContainer);
   let last_child = null;
 
   UserData.projects.forEach((project) => {
@@ -228,6 +214,8 @@ function appendProjects() {
     last_child.appendChild(column_div);
   }
 }
+
+// ------------------ run -------------------//
 
 window.onload = populateUserData();
 sectionTransition();
